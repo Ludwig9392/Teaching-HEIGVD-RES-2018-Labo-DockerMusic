@@ -1,16 +1,24 @@
 {
   "name": "auditor",
   "version": "1.0.0",
-  "description": "",
   "main": "auditor.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Frueh Loïc",
   "license": "ISC",
-  "repository": "https://github.com/Ludwig9392/Teaching-HEIGVD-RES-2018-Labo-DockerMusic",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ludwig9392/Teaching-HEIGVD-RES-2018-Labo-DockerMusic.git"
+  },
   "dependencies": {
-    "dgram": "1.0.1",
-    "uuid": "3.2.1"
-  }
+    "dgram": "^1.0.1",
+    "uuid": "^3.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Ludwig9392/Teaching-HEIGVD-RES-2018-Labo-DockerMusic/issues"
+  },
+  "homepage": "https://github.com/Ludwig9392/Teaching-HEIGVD-RES-2018-Labo-DockerMusic#readme",
+  "devDependencies": {},
+  "description": ""
 }

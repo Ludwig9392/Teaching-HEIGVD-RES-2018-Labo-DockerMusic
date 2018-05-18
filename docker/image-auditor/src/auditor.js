@@ -24,14 +24,14 @@ function removeMusician(uuid){
 }
 
 var server = datagram.createSocket('udp4');
-server.bind(musicProtocol.UDP_PORT, function () {
+server.bind(musicProtocol.UDP_PORT, (err) => {
     console.log("new Musician comming...");
     server.addMembership(musicProtocol.MULTICAST_ADRESS);
 
 });
 
 server.on('message', function (msg, source) {
-    console.log("Data has arrived: " + msg + ". Source IP: " + source.address + ". Source port: " + source.port);
+    console.log("Data has arrived: " + msg + ". Source port: " + source.port);
     var sound = JSON.parse(msg);
     var uuid =  sound.uuid;
     var musician = musicians.get(uuid);
