@@ -1,11 +1,4 @@
-// Protocol recup.
-var protocol = require('musicProtocol');
-
-// Node.js module for UDP for UUID
-var uuid = require('uuid');
-
-// Node.js module for UDP
-var datagram = require('dgram');
+s
 
 var sender = datagram.createSocket('udp4');
 
@@ -30,8 +23,7 @@ if(instruments.get(instrument) == undefined){
 
 var musician = {
     "uuid" : uuid(),
-    "instrument" : instrument,
-    "activeSince" : new Date()
+    "sound" : instruments.get(instrument),
 };
 
 var payload = JSON.stringify(musician);
@@ -39,7 +31,7 @@ var payload = JSON.stringify(musician);
 // Let's send this payload to all the subscriber of the multicast adresse
 message = new Buffer(payload);
 var update = function() {
-    sender.send(message, 0, message.length, protocol.UDP_PORT, protocol.MULTICAST_ADRESS, function () {
+    sender.send(message, 0, message.length, musicProtocol.UDP_PORT, musicProtocol.MULTICAST_ADRESS, function () {
         console.log("Sending payload: " + payload + " via port " + sender.address().port);
     });
 }
